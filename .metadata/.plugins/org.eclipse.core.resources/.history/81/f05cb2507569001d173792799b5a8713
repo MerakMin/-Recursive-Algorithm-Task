@@ -1,0 +1,17 @@
+import javax.swing.*;
+import java.awt.*;
+public class MainForm extends JFrame{
+    private CardLayout card=new CardLayout();
+    Login login=new Login();
+    public MainForm() {
+        setLayout(card);
+        add("LOGIN",login);
+        setLayout(card);
+        setBounds(400, 60, 1024, 950);
+        setVisible(true);
+    }
+    public static void main(String[] args){
+        new MainForm();
+ 
+    }
+}

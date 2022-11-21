@@ -1,0 +1,52 @@
+package mypack;
+import java.util.Scanner;
+public class Login {
+	public static void main(String[] args) {
+		String[] ids = new String[5];
+		String[] pws = new String[5];
+		String[] nicks = new String[5];
+		Scanner sc = new Scanner(System.in);
+		int array_idx = 0;
+		while (true) {
+			System.out.println("1.회원가입 2. 로그인 3. 종료 >> ");
+			int choice = sc.nextInt();
+			if (choice == 1) {
+				if (array_idx < 5) {
+					System.out.println("아이디 입력 : ");
+					String id = sc.next();
+					ids[array_idx] = id;
+
+					System.out.println("비밀번호 입력 : ");
+					String pw = sc.next();
+					pws[array_idx] = pw;
+
+					System.out.println("닉네임 입력 : ");
+					String nick = sc.next();
+					nicks[array_idx] = nick;
+
+					array_idx = array_idx + 1;
+				} else {
+					System.out.println("더 이상 회원가입이 불가능합니다.");
+				}
+			} else if (choice == 2) {
+				System.out.println("아이디 입력 : ");
+				String id = sc.next();
+				System.out.println("비밀번호 입력 : ");
+				String pw = sc.next();
+				int i;
+				for (i = 0; i < ids.length; i++) {
+					if (id.equals(ids[i]) && pw.equals(pws[i])) { // equals() 문자열 비교
+						System.out.println(nicks[i] + "님 로그인 성공했습니다.");
+						break;
+					}
+				}
+				if (i == 5) {
+					System.out.println("로그인실패");
+				}
+			} else if (choice == 3) {
+				System.out.println("프로그램을 종료합니다...");
+				break;
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+package mypack;
+import main.Main;
+
+public class Login {
+
+	public static void login() {
+		
+		int cnt = 0;
+		
+		System.out.println("========= 로그인 창입니다.==========");
+		while(true){
+			
+			String id= Main.input("아이디를 입력해주세요. : ");
+		    String password =Main.input("비밀번호를 입력해주세요.: ");
+		    if(!UserDateSet.userList.containsKey(id)) //널값 미 체크시 널 포인트 오류가 뜬다.
+            System.out.println("존재하지 않는 아이디입니다");
+		    else {
+		    	
+		    
+			if(UserDateSet.userList.get(id).getPassword().equals(password)) {
+				System.out.println("로그인에 성공하였습니다.");
+				break;
+			}
+			else {
+				System.out.println("로그인에 실패하였습니다 다시한번 입력해주세요");
+				cnt++;
+			}
+			if(cnt ==3) {//카운터 값을 줘 3번 실패시 회원가입 창으로 넘어가게 했다.
+				System.out.println("로그인에 3번 실패하였습니다. 회원가입창으로 넘어갑니다");
+				Register.register();
+			}
+			
+		}
+		}
+	
+		
+	}
+
+
+}

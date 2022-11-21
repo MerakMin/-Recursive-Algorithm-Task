@@ -1,0 +1,10 @@
+package main;
+
+public interface Main {
+
+	static String input(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
